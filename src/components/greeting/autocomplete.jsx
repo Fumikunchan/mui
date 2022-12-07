@@ -1,19 +1,18 @@
 import * as React from 'react';
 import { useState } from 'react';
 import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
+import Autocomplete, { autocompleteClasses } from '@mui/material/Autocomplete';
 
 const surnameList = ['清水', '羽佐田', '近藤', '赤石', '宮崎'];
 
 export default function ComboBox() {
-  const [value, setValue] = useState(surnameList[0]);
+  const [value, setValue] = useState('ゲスト');
   const [inputValue, setInputValue] = useState('');
 
   return (
     <>
-      <h1>ようこそ, {`${value !== null ? `${value}` : 'ゲスト'}`}さん!</h1>
+      <h1>{`ようこそ, ${value !== null ? `${value}` : 'ゲスト'}さん!`}</h1>
       <Autocomplete
-        value={value}
         onChange={(_, newValue) => {
           setValue(newValue);
         }}
